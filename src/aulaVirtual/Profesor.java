@@ -2,14 +2,27 @@ package aulaVirtual;
 
 /**
  * Representa a un profesor del aula virtual.
- * Un profesor puede impartir varias asignaturas.
  */
 public class Profesor extends Usuario {
+
+    /**
+     * Constructor.
+     *
+     * @param nombre Nombre del profesor.
+     * @param email  Correo del profesor.
+     */
     public Profesor(String nombre, String email) {
         super(nombre, email);
     }
 
-
+    /**
+     * Califica a un alumno en una asignatura.
+     *
+     * @param alumno     Alumno a calificar.
+     * @param asignatura Asignatura correspondiente.
+     * @param nota       Nota a asignar.
+     * @return true si se asignó la nota, false si el profesor no imparte la asignatura.
+     */
     public boolean calificarAlumno(Alumno alumno, Asignatura asignatura, int nota) {
         if (getAsignaturas().contains(asignatura)) {
             alumno.asignarNota(asignatura, nota);
